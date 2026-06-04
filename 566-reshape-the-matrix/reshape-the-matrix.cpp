@@ -1,10 +1,6 @@
 class Solution {
 public:
-       int element(vector<int> oned, int count)
-       {
-          return oned[count];
-      
-       }
+       
     vector<vector<int>> matrixReshape(vector<vector<int>>& mat, int r, int c) {
         vector<vector<int>> nums(r,vector<int>(c,0));
         int row=mat.size();
@@ -35,7 +31,7 @@ public:
         {
             for(int j=0; j<c; j++ )
             {
-                nums[i][j]=element(oned,count);
+                nums[i][j]=oned[count];
                 count++;
                 
             }
