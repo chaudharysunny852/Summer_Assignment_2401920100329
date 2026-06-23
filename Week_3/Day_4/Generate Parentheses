@@ -1,0 +1,35 @@
+class Solution {
+public:
+    vector<string> generateParenthesis(int n) {
+
+        vector<string> ans;
+
+        stack<tuple<string,int,int>> s;
+
+        s.push({"", 0, 0});
+
+        while(!s.empty())
+        {
+            auto [temp, open, close] = s.top();
+            s.pop();
+
+            if(temp.size() == 2 * n)
+            {
+                ans.push_back(temp);
+                continue;
+            }
+
+            if(close < open)
+            {
+                s.push({temp + ")", open, close + 1});
+            }
+
+            if(open < n)
+            {
+                s.push({temp + "(", open + 1, close});
+            }
+        }
+
+        return ans;
+    }
+};
